@@ -24,3 +24,16 @@ fun Greeting(name: String) {
 //요소를 수직으로 정렬
 ```
 
+### Row
+
+```kotlin
+@Composable
+fun Greeting(name: String) {
+    Row{
+        Text(text = name)
+        Text(text = "Hello $name!")
+    }
+}
+//요소를 수평으로 정렬
+```
+
