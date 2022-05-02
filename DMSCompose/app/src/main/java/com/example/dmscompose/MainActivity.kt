@@ -3,6 +3,7 @@ package com.example.dmscompose
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Column
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
@@ -16,7 +17,6 @@ class MainActivity : ComponentActivity() {
         setContent {
             DMSComposeTheme {
                 Surface(color = MaterialTheme.colors.background) {
-                    Text(text = "hello")
                     Greeting("Android")
                 }
             }
@@ -26,7 +26,10 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Greeting(name: String) {
-    Text(text = "Hello $name!")
+    Column{
+        Text(text = name)
+        Text(text = "Hello $name!")
+    }
 }
 
 @Preview(showSystemUi = true, showBackground = true)
