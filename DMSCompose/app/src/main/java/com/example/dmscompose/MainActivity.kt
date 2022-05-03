@@ -12,7 +12,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -52,7 +51,14 @@ fun Alarm() {
 
 @Composable
 fun MyPage() {
-    Text(text = "MyPage")
+    Column() {
+        Box(modifier = Modifier
+            .background(Mint)
+            .fillMaxWidth()
+            .height(200.dp)){
+            Text(text = "MyPage",style = Typography.body1)
+        }
+    }
 }
 
 @Composable
