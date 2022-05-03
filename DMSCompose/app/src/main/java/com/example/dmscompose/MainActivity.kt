@@ -3,15 +3,19 @@ package com.example.dmscompose
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Alignment.Companion.End
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight.Companion.Bold
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -21,9 +25,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.example.dmscompose.ui.theme.DMSComposeTheme
-import com.example.dmscompose.ui.theme.Mint
-import com.example.dmscompose.ui.theme.Typography
+import com.example.dmscompose.ui.theme.*
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,13 +53,41 @@ fun Alarm() {
 
 @Composable
 fun MyPage() {
-    Column() {
-        Box(modifier = Modifier
-            .background(Mint)
-            .fillMaxWidth()
-            .height(200.dp)){
-            Text(text = "MyPage",style = Typography.body1)
+    Box(
+        modifier = Modifier.fillMaxSize()
+    ) {
+        Column(
+            modifier = Modifier
+                .background(Mint)
+                .fillMaxWidth()
+                .height(200.dp)
+        ) {
+            Row(
+                modifier = Modifier
+                    .absolutePadding(20.dp, 15.dp,25.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Column() {
+                    Text(
+                        text = "김준호",
+                        color = Color.White,
+                        fontFamily = font,
+                        fontWeight = Bold,
+                        fontSize = 18.sp
+                    )
+                    Text(text = "2학년 1반 7반", color = whiteGray)
+                }
+                Image(
+                    painterResource(id = R.drawable.ic_baseline_brightness_5_24),
+                    contentDescription = "",
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .wrapContentWidth(align = End)
+                )
+            }
+
         }
+
     }
 }
 
