@@ -1,6 +1,7 @@
 package com.example.dmscompose.ui.theme
 
 import androidx.compose.material.Typography
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
@@ -27,4 +28,10 @@ val Typography = Typography(
         fontSize = 12.sp
     )
     */
+
+)
+val MyPageFont = Typography(
+    body1 = TextStyle(
+        fontSize = 10.sp,fontFamily = font,fontWeight = FontWeight.Light, color = Color.White
+    )
 )

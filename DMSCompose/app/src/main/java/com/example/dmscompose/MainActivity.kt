@@ -1,5 +1,6 @@
 package com.example.dmscompose
 
+import android.hardware.lights.Light
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageButton
@@ -13,12 +14,14 @@ import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Alignment.Companion.End
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight.Companion.Bold
+import androidx.compose.ui.text.font.FontWeight.Companion.Light
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -86,10 +89,75 @@ fun MyPage() {
                     modifier = Modifier
                         .fillMaxWidth()
                         .wrapContentWidth(align = End)
-                        .clickable {  }
+                        .clickable { }
                 )
             }
-
+            Row(
+                Modifier
+                    .fillMaxWidth()
+                    .wrapContentWidth(align = CenterHorizontally)
+                    .padding(0.dp, 20.dp)
+                    .width(315.dp)
+                    .height(60.dp)
+            ) {
+               Column(
+                   Modifier
+                       .width(105.dp)
+                       .fillMaxHeight()
+               ) {
+                   Image( painterResource(id = R.drawable.ic_baseline_warning_24),
+                       contentDescription = "",
+                       modifier = Modifier
+                           .fillMaxWidth()
+                           .wrapContentWidth(align = CenterHorizontally)
+                           .clickable { } )
+                   TextButton(onClick = {},
+                       Modifier
+                           .fillMaxWidth()
+                           .wrapContentWidth(align = CenterHorizontally)
+                   ) {
+                       Text(text = "시설 고장 신고", style = MyPageFont.body1)
+                   }
+               }
+                Column(
+                    Modifier
+                        .width(105.dp)
+                        .fillMaxHeight()
+                ) {
+                    Image( painterResource(id = R.drawable.ic_baseline_description_24),
+                        contentDescription = "",
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .wrapContentWidth(align = CenterHorizontally)
+                            .clickable { } )
+                    TextButton(onClick = {},
+                        Modifier
+                            .fillMaxWidth()
+                            .wrapContentWidth(align = CenterHorizontally)
+                    ) {
+                        Text(text = "설문 조사", style = MyPageFont.body1)
+                    }
+                }
+                Column(
+                    Modifier
+                        .width(105.dp)
+                        .fillMaxHeight()
+                ) {
+                    Image( painterResource(id = R.drawable.ic_baseline_bug_report_24),
+                        contentDescription = "",
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .wrapContentWidth(align = CenterHorizontally)
+                            .clickable { } )
+                    TextButton(onClick = {},
+                        Modifier
+                            .fillMaxWidth()
+                            .wrapContentWidth(align = CenterHorizontally)
+                    ) {
+                        Text(text = "버그 신고", style = MyPageFont.body1)
+                    }
+                }
+            }
         }
 
     }
