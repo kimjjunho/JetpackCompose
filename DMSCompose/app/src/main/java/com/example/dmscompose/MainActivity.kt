@@ -1,10 +1,13 @@
 package com.example.dmscompose
 
 import android.os.Bundle
+import android.widget.Button
+import android.widget.ImageButton
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
@@ -83,6 +86,7 @@ fun MyPage() {
                     modifier = Modifier
                         .fillMaxWidth()
                         .wrapContentWidth(align = End)
+                        .clickable {  }
                 )
             }
 
