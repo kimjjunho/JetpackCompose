@@ -1,9 +1,6 @@
 package com.example.dmscompose
 
-import android.hardware.lights.Light
 import android.os.Bundle
-import android.widget.Button
-import android.widget.ImageButton
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
@@ -14,14 +11,18 @@ import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.Alignment.Companion.CenterEnd
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
+import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Alignment.Companion.End
+import androidx.compose.ui.Alignment.Companion.Start
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight.Companion.Bold
 import androidx.compose.ui.text.font.FontWeight.Companion.Light
+import androidx.compose.ui.text.font.FontWeight.Companion.Medium
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -60,13 +61,15 @@ fun Alarm() {
 @Composable
 fun MyPage() {
     Box(
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(230.dp)
     ) {
         Column(
             modifier = Modifier
                 .background(Mint)
                 .fillMaxWidth()
-                .height(200.dp)
+                .height(230.dp)
         ) {
             Row(
                 modifier = Modifier
@@ -159,8 +162,92 @@ fun MyPage() {
                 }
             }
         }
-
     }
+
+    Row(
+        modifier = Modifier
+            .fillMaxHeight()
+            .fillMaxWidth()
+            .padding(45.dp, 200.dp, 45.dp)
+    ){
+        Box(
+            modifier = Modifier
+                .height(60.dp)
+                .width(120.dp)
+                .wrapContentWidth(align = Start)
+        ){
+            Image(painterResource(id = R.drawable.mypage_textbox),contentDescription = "",
+                modifier = Modifier
+                    .fillMaxHeight()
+                    .fillMaxWidth()
+                    .wrapContentHeight(align = CenterVertically)
+                    .wrapContentWidth(align = CenterHorizontally)
+            )
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(60.dp)
+                    .wrapContentHeight(align = CenterVertically)
+            ) {
+                Text(text = "13",
+                    color = Color.Black,
+                    fontFamily = font,
+                    fontWeight = Medium,
+                    fontSize = 20.sp,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .wrapContentWidth(align = CenterHorizontally))
+                Text(text = "상점",
+                    color = Color.Black,
+                    fontFamily = font,
+                    fontWeight = Light,
+                    fontSize = 10.sp,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .wrapContentWidth(align = CenterHorizontally))
+            }
+        }
+        Spacer(modifier = Modifier.weight(1f))
+        Box(
+            modifier = Modifier
+                .height(60.dp)
+                .width(120.dp)
+//                .wrapContentWidth(align = End)
+        ){
+            Image(painterResource(id = R.drawable.mypage_textbox),contentDescription = "",
+                modifier = Modifier
+                    .fillMaxHeight()
+                    .fillMaxWidth()
+                    .wrapContentHeight(align = CenterVertically)
+                    .wrapContentWidth(align = CenterHorizontally)
+            )
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(60.dp)
+                    .wrapContentHeight(align = CenterVertically)
+            ) {
+                Text(text = "13",
+                    color = Color.Black,
+                    fontFamily = font,
+                    fontWeight = Medium,
+                    fontSize = 20.sp,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .wrapContentWidth(align = CenterHorizontally))
+                Text(text = "벌점",
+                    color = Color.Black,
+                    fontFamily = font,
+                    fontWeight = Light,
+                    fontSize = 10.sp,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .wrapContentWidth(align = CenterHorizontally))
+            }
+        }
+    }
+
+
 }
 
 @Composable
