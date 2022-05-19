@@ -12,14 +12,18 @@ import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.Alignment.Companion.Bottom
+import androidx.compose.ui.Alignment.Companion.BottomEnd
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Alignment.Companion.End
 import androidx.compose.ui.Alignment.Companion.Start
+import androidx.compose.ui.Alignment.Companion.Top
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight.Companion.Black
 import androidx.compose.ui.text.font.FontWeight.Companion.Bold
 import androidx.compose.ui.text.font.FontWeight.Companion.Light
 import androidx.compose.ui.text.font.FontWeight.Companion.Medium
@@ -284,6 +288,106 @@ fun MyPage() {
                     .wrapContentHeight(CenterVertically)
             )
         }
+        Spacer(modifier = Modifier.height(15.dp))
+        Column(
+            modifier = Modifier
+                .fillMaxHeight()
+                .fillMaxWidth()
+                .padding(0.dp, 0.dp, 0.dp, 60.dp)
+        ) {
+            Row(
+                modifier = Modifier
+                    .fillMaxHeight(0.25F)
+                    .fillMaxWidth()
+            ){
+                Column(modifier = Modifier.fillMaxHeight()) {
+                    Text(text = "로그아웃", style = MyPageFont2.body1,modifier = Modifier
+                        .padding(0.dp,17.dp)
+                    )
+                    Text(text = "기기내 계정에서 로그아웃합니다.", style = MyPageFont2.body2, modifier = Modifier
+                        .fillMaxHeight()
+                        .wrapContentHeight(align = Bottom)
+                        .padding(0.dp,0.dp,0.dp,17.dp)
+                    )
+                }
+                Image(painterResource(id = R.drawable.mypage_image_arrow), contentDescription = "",
+                        modifier = Modifier
+                            .fillMaxHeight()
+                            .wrapContentHeight(CenterVertically)
+                            .fillMaxWidth()
+                            .wrapContentWidth(End)
+                )
+            }
+           Row(
+               modifier = Modifier
+                   .fillMaxHeight(0.33F)
+                   .fillMaxWidth()
+           ) {
+               Column(modifier = Modifier.fillMaxHeight()) {
+                   Text(text = "비밀번호 변경", style = MyPageFont2.body1,modifier = Modifier
+                       .padding(0.dp,17.dp)
+                   )
+                   Text(text = "DMS 계정의 비밀번호를 변경합니다.", style = MyPageFont2.body2, modifier = Modifier
+                       .fillMaxHeight()
+                       .wrapContentHeight(align = Bottom)
+                       .padding(0.dp,0.dp,0.dp,17.dp)
+                   )
+               }
+               Image(painterResource(id = R.drawable.mypage_image_arrow), contentDescription = "",
+                   modifier = Modifier
+                       .fillMaxHeight()
+                       .wrapContentHeight(CenterVertically)
+                       .fillMaxWidth()
+                       .wrapContentWidth(End)
+               )
+           }
+            Row(
+                modifier = Modifier
+                    .fillMaxHeight(0.5F)
+                    .fillMaxWidth()
+            ) {
+                Column(modifier = Modifier.fillMaxHeight()) {
+                    Text(text = "상 / 벌점 내역", style = MyPageFont2.body1,modifier = Modifier
+                        .padding(0.dp,17.dp)
+                    )
+                    Text(text = "우정관 상 / 벌점 내역을 확인합니다.", style = MyPageFont2.body2, modifier = Modifier
+                        .fillMaxHeight()
+                        .wrapContentHeight(align = Bottom)
+                        .padding(0.dp,0.dp,0.dp,17.dp)
+                    )
+                }
+                Image(painterResource(id = R.drawable.mypage_image_arrow), contentDescription = "",
+                    modifier = Modifier
+                        .fillMaxHeight()
+                        .wrapContentHeight(CenterVertically)
+                        .fillMaxWidth()
+                        .wrapContentWidth(End)
+                )
+            }
+            Row(
+                modifier = Modifier
+                    .fillMaxHeight(1F)
+                    .fillMaxWidth()
+            ) {
+                Column(modifier = Modifier.fillMaxHeight()) {
+                    Text(text = "개발자 소개", style = MyPageFont2.body1,modifier = Modifier
+                        .padding(0.dp,17.dp)
+                    )
+                    Text(text = "DMS팀의 개발자를 소개합니다.", style = MyPageFont2.body2, modifier = Modifier
+                        .fillMaxHeight()
+                        .wrapContentHeight(align = Bottom)
+                        .padding(0.dp,0.dp,0.dp,17.dp)
+                    )
+                }
+                Image(painterResource(id = R.drawable.mypage_image_arrow), contentDescription = "",
+                    modifier = Modifier
+                        .fillMaxHeight()
+                        .wrapContentHeight(CenterVertically)
+                        .fillMaxWidth()
+                        .wrapContentWidth(End)
+                )
+            }
+        }
     }
 }
 
@@ -315,7 +419,9 @@ fun BottomNavigation(navController: NavController) {
     )
     BottomNavigation(
         backgroundColor = colorResource(id = R.color.teal_200),
-        contentColor = Color.Black
+        contentColor = Color.Black,
+        modifier = Modifier
+            .height(60.dp)
     ) {
         val navBackStackEntry by navController.currentBackStackEntryAsState()
         val currentRoute = navBackStackEntry?.destination?.route
