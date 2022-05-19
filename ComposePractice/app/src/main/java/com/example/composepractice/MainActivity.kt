@@ -42,11 +42,16 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-    @Preview(showSystemUi = true, showBackground = true)
+    @Composable
+    fun Show(name: String){
+        (Text(text = name))
+    }
+
+    @Preview(showBackground = true, showSystemUi = true)
     @Composable
     fun DefaultPreview() {
         ComposePracticeTheme {
-            Greeting("Android")
+            Show("컴포즈")
         }
     }
 }

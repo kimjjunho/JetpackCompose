@@ -20,6 +20,7 @@ import androidx.compose.ui.Alignment.Companion.End
 import androidx.compose.ui.Alignment.Companion.Start
 import androidx.compose.ui.Alignment.Companion.Top
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
@@ -184,6 +185,7 @@ fun MyPage() {
                     .height(60.dp)
                     .width(120.dp)
                     .wrapContentWidth(align = Start)
+
             ) {
                 Image(
                     painterResource(id = R.drawable.mypage_textbox), contentDescription = "",
@@ -192,6 +194,7 @@ fun MyPage() {
                         .fillMaxWidth()
                         .wrapContentHeight(align = CenterVertically)
                         .wrapContentWidth(align = CenterHorizontally)
+                        .drawColoredShadow(color = Mint,offsetY = 5.dp)
                 )
                 Column(
                     modifier = Modifier
@@ -235,6 +238,7 @@ fun MyPage() {
                         .fillMaxWidth()
                         .wrapContentHeight(align = CenterVertically)
                         .wrapContentWidth(align = CenterHorizontally)
+                        .drawColoredShadow(color = Mint,offsetY = 5.dp)
                 )
                 Column(
                     modifier = Modifier
