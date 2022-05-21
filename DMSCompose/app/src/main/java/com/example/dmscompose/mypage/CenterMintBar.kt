@@ -15,7 +15,7 @@ import com.example.dmscompose.ui.theme.Mint
 import com.example.dmscompose.ui.theme.font
 
 @Composable
-fun centerMintBar(text:String){
+fun CenterMintBar(text:String){
     Box(
         modifier = Modifier
             .height(30.dp)

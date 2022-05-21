@@ -38,7 +38,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.example.dmscompose.mypage.centerMintBar
+import com.example.dmscompose.mypage.BottomFourView
+import com.example.dmscompose.mypage.CenterMintBar
 import com.example.dmscompose.ui.theme.*
 
 class MainActivity : ComponentActivity() {
@@ -272,7 +273,7 @@ fun MyPage() {
         }
         Spacer(modifier = Modifier.height(30.dp))
         
-        centerMintBar(text = "건웅쌤이 지켜보는 중입니다!!")
+        CenterMintBar(text = "건웅쌤이 지켜보는 중입니다!!")
         
         Spacer(modifier = Modifier.height(15.dp))
         Column(
@@ -281,98 +282,10 @@ fun MyPage() {
                 .fillMaxWidth()
                 .padding(0.dp, 0.dp, 0.dp, 60.dp)
         ) {
-            Row(
-                modifier = Modifier
-                    .fillMaxHeight(0.25F)
-                    .fillMaxWidth()
-            ){
-                Column(modifier = Modifier.fillMaxHeight()) {
-                    Text(text = "로그아웃", style = MyPageFont2.body1,modifier = Modifier
-                        .padding(0.dp,17.dp)
-                    )
-                    Text(text = "기기내 계정에서 로그아웃합니다.", style = MyPageFont2.body2, modifier = Modifier
-                        .fillMaxHeight()
-                        .wrapContentHeight(align = Bottom)
-                        .padding(0.dp, 0.dp, 0.dp, 17.dp)
-                    )
-                }
-                Image(painterResource(id = R.drawable.mypage_image_arrow), contentDescription = "",
-                        modifier = Modifier
-                            .fillMaxHeight()
-                            .wrapContentHeight(CenterVertically)
-                            .fillMaxWidth()
-                            .wrapContentWidth(End)
-                )
-            }
-           Row(
-               modifier = Modifier
-                   .fillMaxHeight(0.33F)
-                   .fillMaxWidth()
-           ) {
-               Column(modifier = Modifier.fillMaxHeight()) {
-                   Text(text = "비밀번호 변경", style = MyPageFont2.body1,modifier = Modifier
-                       .padding(0.dp,17.dp)
-                   )
-                   Text(text = "DMS 계정의 비밀번호를 변경합니다.", style = MyPageFont2.body2, modifier = Modifier
-                       .fillMaxHeight()
-                       .wrapContentHeight(align = Bottom)
-                       .padding(0.dp, 0.dp, 0.dp, 17.dp)
-                   )
-               }
-               Image(painterResource(id = R.drawable.mypage_image_arrow), contentDescription = "",
-                   modifier = Modifier
-                       .fillMaxHeight()
-                       .wrapContentHeight(CenterVertically)
-                       .fillMaxWidth()
-                       .wrapContentWidth(End)
-               )
-           }
-            Row(
-                modifier = Modifier
-                    .fillMaxHeight(0.5F)
-                    .fillMaxWidth()
-            ) {
-                Column(modifier = Modifier.fillMaxHeight()) {
-                    Text(text = "상 / 벌점 내역", style = MyPageFont2.body1,modifier = Modifier
-                        .padding(0.dp,17.dp)
-                    )
-                    Text(text = "우정관 상 / 벌점 내역을 확인합니다.", style = MyPageFont2.body2, modifier = Modifier
-                        .fillMaxHeight()
-                        .wrapContentHeight(align = Bottom)
-                        .padding(0.dp, 0.dp, 0.dp, 17.dp)
-                    )
-                }
-                Image(painterResource(id = R.drawable.mypage_image_arrow), contentDescription = "",
-                    modifier = Modifier
-                        .fillMaxHeight()
-                        .wrapContentHeight(CenterVertically)
-                        .fillMaxWidth()
-                        .wrapContentWidth(End)
-                )
-            }
-            Row(
-                modifier = Modifier
-                    .fillMaxHeight(1F)
-                    .fillMaxWidth()
-            ) {
-                Column(modifier = Modifier.fillMaxHeight()) {
-                    Text(text = "개발자 소개", style = MyPageFont2.body1,modifier = Modifier
-                        .padding(0.dp,17.dp)
-                    )
-                    Text(text = "DMS팀의 개발자를 소개합니다.", style = MyPageFont2.body2, modifier = Modifier
-                        .fillMaxHeight()
-                        .wrapContentHeight(align = Bottom)
-                        .padding(0.dp, 0.dp, 0.dp, 17.dp)
-                    )
-                }
-                Image(painterResource(id = R.drawable.mypage_image_arrow), contentDescription = "",
-                    modifier = Modifier
-                        .fillMaxHeight()
-                        .wrapContentHeight(CenterVertically)
-                        .fillMaxWidth()
-                        .wrapContentWidth(End)
-                )
-            }
+            BottomFourView(mintText = "로그아웃", longText = "기기내 계정에서 로그아웃합니다.", size = 0.25F)
+            BottomFourView(mintText = "비밀번호 변경", longText = "비밀번호를 변경합니다.", size = 0.33F)
+            BottomFourView(mintText = "상 / 벌점 내역", longText = "우정관 상 / 발점 내역을 확인합니다.", size = 0.5F)
+            BottomFourView(mintText = "개발자 소개", longText = "DMS앱의 개발자를 소개합니다.", size = 1F)
         }
     }
 }
