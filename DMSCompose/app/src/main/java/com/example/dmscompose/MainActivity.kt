@@ -7,28 +7,21 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.Alignment.Companion.Bottom
-import androidx.compose.ui.Alignment.Companion.BottomEnd
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Alignment.Companion.End
 import androidx.compose.ui.Alignment.Companion.Start
-import androidx.compose.ui.Alignment.Companion.Top
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontWeight.Companion.Black
 import androidx.compose.ui.text.font.FontWeight.Companion.Bold
 import androidx.compose.ui.text.font.FontWeight.Companion.Light
 import androidx.compose.ui.text.font.FontWeight.Companion.Medium
-import androidx.compose.ui.text.font.FontWeight.Companion.SemiBold
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -38,6 +31,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.example.dmscompose.bottomnavi.BottomNavItem
+import com.example.dmscompose.bottomnavi.BottomNavigationCustom
+import com.example.dmscompose.bottomnavi.NavigationGraph
 import com.example.dmscompose.mypage.BottomFourView
 import com.example.dmscompose.mypage.CenterMintBar
 import com.example.dmscompose.ui.theme.*
@@ -291,74 +287,10 @@ fun MyPage() {
 }
 
 @Composable
-fun NavigationGraph(navController: NavHostController) {
-    NavHost(navController, startDestination = BottomNavItem.Menu.screen_route) {
-        composable(BottomNavItem.Menu.screen_route) {
-            Menu()
-        }
-        composable(BottomNavItem.Check.screen_route) {
-            Check()
-        }
-        composable(BottomNavItem.Alarm.screen_route) {
-            Alarm()
-        }
-        composable(BottomNavItem.MyPage.screen_route) {
-            MyPage()
-        }
-    }
-}
-
-@Composable
-fun BottomNavigation(navController: NavController) {
-    val items = listOf(
-        BottomNavItem.Menu,
-        BottomNavItem.Check,
-        BottomNavItem.Alarm,
-        BottomNavItem.MyPage
-    )
-    BottomNavigation(
-        backgroundColor = colorResource(id = R.color.teal_200),
-        contentColor = Color.Black,
-        modifier = Modifier
-            .height(60.dp)
-    ) {
-        val navBackStackEntry by navController.currentBackStackEntryAsState()
-        val currentRoute = navBackStackEntry?.destination?.route
-        items.forEach { item ->
-            BottomNavigationItem(
-                icon = { Icon(painterResource(id = item.icon), contentDescription = item.title) },
-                label = {
-                    Text(
-                        text = item.title,
-                        fontSize = 9.sp
-                    )
-                },
-                selectedContentColor = Color.White,
-                unselectedContentColor = Color.White.copy(0.4f),
-                alwaysShowLabel = true,
-                selected = currentRoute == item.screen_route,
-                onClick = {
-                    navController.navigate(item.screen_route) {
-
-                        navController.graph.startDestinationRoute?.let { screen_route ->
-                            popUpTo(screen_route) {
-                                saveState = true
-                            }
-                        }
-                        launchSingleTop = true
-                        restoreState = true
-                    }
-                }
-            )
-        }
-    }
-}
-
-@Composable
 fun MainScreenView() {
     val navController = rememberNavController()
     Scaffold(
-        bottomBar = { BottomNavigation(navController = navController) }
+        bottomBar = { BottomNavigationCustom(navController = navController) }
     ) {
         NavigationGraph(navController = navController)
     }
