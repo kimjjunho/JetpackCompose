@@ -38,6 +38,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.example.dmscompose.mypage.centerMintBar
 import com.example.dmscompose.ui.theme.*
 
 class MainActivity : ComponentActivity() {
@@ -194,7 +195,7 @@ fun MyPage() {
                         .fillMaxWidth()
                         .wrapContentHeight(align = CenterVertically)
                         .wrapContentWidth(align = CenterHorizontally)
-                        .drawColoredShadow(color = Mint,offsetY = 5.dp)
+                        .drawColoredShadow(color = Mint, offsetY = 5.dp)
                 )
                 Column(
                     modifier = Modifier
@@ -238,7 +239,7 @@ fun MyPage() {
                         .fillMaxWidth()
                         .wrapContentHeight(align = CenterVertically)
                         .wrapContentWidth(align = CenterHorizontally)
-                        .drawColoredShadow(color = Mint,offsetY = 5.dp)
+                        .drawColoredShadow(color = Mint, offsetY = 5.dp)
                 )
                 Column(
                     modifier = Modifier
@@ -270,28 +271,9 @@ fun MyPage() {
             }
         }
         Spacer(modifier = Modifier.height(30.dp))
-        Box(
-            modifier = Modifier
-                .height(30.dp)
-                .fillMaxWidth()
-                .background(
-                    color = Mint,
-                    shape = RoundedCornerShape(15.dp)
-                )
-        ) {
-            Text(
-                text = "건웅쌤이 지켜보는 중입니다!!",
-                color = Color.White,
-                fontFamily = font,
-                fontWeight = SemiBold,
-                fontSize = 11.sp,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .wrapContentWidth(CenterHorizontally)
-                    .fillMaxHeight()
-                    .wrapContentHeight(CenterVertically)
-            )
-        }
+        
+        centerMintBar(text = "건웅쌤이 지켜보는 중입니다!!")
+        
         Spacer(modifier = Modifier.height(15.dp))
         Column(
             modifier = Modifier
@@ -311,7 +293,7 @@ fun MyPage() {
                     Text(text = "기기내 계정에서 로그아웃합니다.", style = MyPageFont2.body2, modifier = Modifier
                         .fillMaxHeight()
                         .wrapContentHeight(align = Bottom)
-                        .padding(0.dp,0.dp,0.dp,17.dp)
+                        .padding(0.dp, 0.dp, 0.dp, 17.dp)
                     )
                 }
                 Image(painterResource(id = R.drawable.mypage_image_arrow), contentDescription = "",
@@ -334,7 +316,7 @@ fun MyPage() {
                    Text(text = "DMS 계정의 비밀번호를 변경합니다.", style = MyPageFont2.body2, modifier = Modifier
                        .fillMaxHeight()
                        .wrapContentHeight(align = Bottom)
-                       .padding(0.dp,0.dp,0.dp,17.dp)
+                       .padding(0.dp, 0.dp, 0.dp, 17.dp)
                    )
                }
                Image(painterResource(id = R.drawable.mypage_image_arrow), contentDescription = "",
@@ -357,7 +339,7 @@ fun MyPage() {
                     Text(text = "우정관 상 / 벌점 내역을 확인합니다.", style = MyPageFont2.body2, modifier = Modifier
                         .fillMaxHeight()
                         .wrapContentHeight(align = Bottom)
-                        .padding(0.dp,0.dp,0.dp,17.dp)
+                        .padding(0.dp, 0.dp, 0.dp, 17.dp)
                     )
                 }
                 Image(painterResource(id = R.drawable.mypage_image_arrow), contentDescription = "",
@@ -380,7 +362,7 @@ fun MyPage() {
                     Text(text = "DMS팀의 개발자를 소개합니다.", style = MyPageFont2.body2, modifier = Modifier
                         .fillMaxHeight()
                         .wrapContentHeight(align = Bottom)
-                        .padding(0.dp,0.dp,0.dp,17.dp)
+                        .padding(0.dp, 0.dp, 0.dp, 17.dp)
                     )
                 }
                 Image(painterResource(id = R.drawable.mypage_image_arrow), contentDescription = "",
