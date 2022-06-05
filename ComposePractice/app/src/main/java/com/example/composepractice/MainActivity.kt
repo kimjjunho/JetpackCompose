@@ -38,7 +38,7 @@ class MainActivity : ComponentActivity() {
                 .height(30.dp)
                 .fillMaxWidth()
                 .background(
-                    color = MaterialTheme.colors.background,
+                    color = MaterialTheme.colors.primary,
                     shape = RoundedCornerShape(15.dp)
                 )
         ) {
