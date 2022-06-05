@@ -3,32 +3,62 @@ package com.example.composepractice
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.composepractice.ui.theme.ComposePracticeTheme
+import com.example.composepractice.ui.theme.Teal200
+import com.example.composepractice.ui.theme.font.font
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             setContent {
-                ComposePracticeTheme {
-                    Surface(color = MaterialTheme.colors.background) {
-                        Greeting("Android")
-                    }
-                }
+
             }
         }
     }
 
+
+    //다크모드 적용
     @Composable
+    fun Btn(){
+        Box(
+            modifier = Modifier
+                .height(30.dp)
+                .fillMaxWidth()
+                .background(
+                    color = MaterialTheme.colors.background,
+                    shape = RoundedCornerShape(15.dp)
+                )
+        ) {
+            Text(
+                text = "dd",
+                color = MaterialTheme.colors.primary,
+                fontFamily = font,
+                fontWeight = FontWeight.SemiBold,
+                fontSize = 11.sp,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .wrapContentWidth(Alignment.CenterHorizontally)
+                    .fillMaxHeight()
+                    .wrapContentHeight(Alignment.CenterVertically)
+            )
+        }
+    }
+
+    // 간다한 연습 코드
+    /*@Composable
     fun Greeting(name: String) {
         Row {
             Image(
@@ -45,13 +75,13 @@ class MainActivity : ComponentActivity() {
     @Composable
     fun Show(name: String){
         (Text(text = name))
-    }
+    }*/
 
     @Preview(showBackground = true, showSystemUi = true)
     @Composable
     fun DefaultPreview() {
-        ComposePracticeTheme {
-            Show("컴포즈")
+        ComposePracticeTheme (darkTheme = true){
+            Btn()
         }
     }
 }
