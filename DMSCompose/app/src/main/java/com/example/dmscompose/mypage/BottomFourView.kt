@@ -1,7 +1,9 @@
 package com.example.dmscompose.mypage
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -9,6 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.example.dmscompose.R
+import com.example.dmscompose.ui.theme.Mint
 
 import com.example.dmscompose.ui.theme.MyPageFont2
 
@@ -18,9 +21,10 @@ fun BottomFourView(mintText : String, longText:String, size:Float){
         modifier = Modifier
             .fillMaxHeight(size)
             .fillMaxWidth()
+            .background(MaterialTheme.colors.background)
     ){
         Column(modifier = Modifier.fillMaxHeight()) {
-            Text(text = mintText, style = MyPageFont2.body1,modifier = Modifier
+            Text(text = mintText, color = MaterialTheme.colors.primary,style = MyPageFont2.body1,modifier = Modifier
                 .padding(0.dp,17.dp)
             )
             Text(text = longText, style = MyPageFont2.body2, modifier = Modifier

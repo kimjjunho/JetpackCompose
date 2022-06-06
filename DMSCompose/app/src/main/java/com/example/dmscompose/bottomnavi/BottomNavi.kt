@@ -3,6 +3,7 @@ package com.example.dmscompose.bottomnavi
 import androidx.compose.foundation.layout.height
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.Icon
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -51,7 +52,7 @@ fun BottomNavigationCustom(navController: NavController) {
         BottomNavItem.MyPage
     )
     androidx.compose.material.BottomNavigation(
-        backgroundColor = colorResource(id = R.color.teal_200),
+        backgroundColor = MaterialTheme.colors.primary,
         contentColor = Color.Black,
         modifier = Modifier
             .height(60.dp)

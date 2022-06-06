@@ -42,7 +42,7 @@ val MyPageFont = Typography(
 
 val MyPageFont2 = Typography(
     body1 = TextStyle(
-        color = Mint,fontFamily = font,fontWeight = FontWeight.SemiBold,fontSize = 11.sp
+        fontFamily = font,fontWeight = FontWeight.SemiBold,fontSize = 11.sp
     ),
     body2 = TextStyle(color = Gray100,fontFamily = font,fontWeight = FontWeight.Light,fontSize = 9.sp)
 )

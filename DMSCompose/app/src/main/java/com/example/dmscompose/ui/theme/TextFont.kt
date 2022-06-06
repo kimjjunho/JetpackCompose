@@ -12,7 +12,7 @@ val font = FontFamily(
     Font(R.font.inter_extralight, weight = FontWeight.ExtraLight),
     Font(R.font.inter_light, weight = FontWeight.Light),
     Font(R.font.inter_medium, weight = FontWeight.Medium),
-    Font(R.font.inter_regular, weight = FontWeight.Normal),
+    Font(R.font.inter_regular, weight = FontWeight .Normal),
     Font(R.font.inter_semibold, weight = FontWeight.SemiBold),
     Font(R.font.inter_thin, weight = FontWeight.Thin),
     )

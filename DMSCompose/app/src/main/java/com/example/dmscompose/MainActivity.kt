@@ -1,5 +1,6 @@
 package com.example.dmscompose
 
+import android.graphics.Color.parseColor
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -9,15 +10,12 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Alignment.Companion.End
 import androidx.compose.ui.Alignment.Companion.Start
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight.Companion.Bold
 import androidx.compose.ui.text.font.FontWeight.Companion.Light
@@ -25,13 +23,7 @@ import androidx.compose.ui.text.font.FontWeight.Companion.Medium
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
-import androidx.navigation.NavHostController
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
-import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.example.dmscompose.bottomnavi.BottomNavItem
 import com.example.dmscompose.bottomnavi.BottomNavigationCustom
 import com.example.dmscompose.bottomnavi.NavigationGraph
 import com.example.dmscompose.mypage.BottomFourView
@@ -41,8 +33,11 @@ import com.example.dmscompose.ui.theme.*
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContent {
-            MainScreenView()
+            DMSComposeTheme (darkTheme = true){
+                MainScreenView()
+            }
         }
     }
 }
@@ -64,6 +59,7 @@ fun Alarm() {
 
 @Composable
 fun MyPage() {
+
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -71,7 +67,7 @@ fun MyPage() {
     ) {
         Column(
             modifier = Modifier
-                .background(Mint)
+                .background(MaterialTheme.colors.primary)
                 .fillMaxWidth()
                 .height(230.dp)
         ) {
@@ -299,7 +295,7 @@ fun MainScreenView() {
 @Preview(showSystemUi = true, showBackground = true)
 @Composable
 fun DefaultPreview() {
-    DMSComposeTheme {
+    DMSComposeTheme (darkTheme = true){
         MyPage()
     }
 
