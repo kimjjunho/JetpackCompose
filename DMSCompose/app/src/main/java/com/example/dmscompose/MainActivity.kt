@@ -36,7 +36,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
-            DMSComposeTheme (darkTheme = true){
+            DMSComposeTheme (darkTheme = false){
                 MainScreenView()
             }
         }
