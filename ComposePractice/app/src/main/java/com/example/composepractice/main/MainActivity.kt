@@ -22,6 +22,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.composepractice.animation.CircleLoadingProgressBar
 import com.example.composepractice.animation.LinearLoadingProgressBar
+import com.example.composepractice.animation.LinearProgressBar
 import com.example.composepractice.ui.theme.ComposePracticeTheme
 
 class MainActivity : ComponentActivity() {
@@ -29,12 +30,24 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             ComposePracticeTheme (darkTheme = true){
-                LinearLoadingProgress()
+                LinearProgress()
             }
         }
     }
 
+    //가로 프로그레스바
+    @Composable
+    fun LinearProgress(
+        viewModel: MainViewModel = viewModel()
+    ){
+        val loading = viewModel.loading.value
+        Column(modifier = Modifier.fillMaxWidth()) {
+            viewModel.progressLoading()
+            LinearProgressBar(loading)
+        }
+    }
 
+    //원 3개 로딩중 애니메이션
     @Composable
     fun LinearLoadingProgress(
         viewModel: MainViewModel = viewModel()
@@ -45,20 +58,20 @@ class MainActivity : ComponentActivity() {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             val loading = viewModel.loading.value
-            viewModel.linearProgressLoading()
+            viewModel.progressLoading()
             LinearLoadingProgressBar(isDisplayed = loading)
         }
     }
 
     //동그란 로딩중 애니메이션
-    /*@Composable
+    @Composable
     fun CircleLoadingProgress(
         viewModel: MainViewModel = viewModel()
     ){
         val loading = viewModel.loading.value
-        viewModel.circleProgressLoading()
+        viewModel.progressLoading()
         CircleLoadingProgressBar(isDisplayed = loading)
-    }*/
+    }
 
 
     //다크모드 적용

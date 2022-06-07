@@ -11,20 +11,11 @@ import kotlinx.coroutines.launch
 class MainViewModel : ViewModel(){
     val loading = mutableStateOf(true)
 
-    fun linearProgressLoading(){
+    fun progressLoading(){
         viewModelScope.launch {
             delay(10000)
             loading.value = false
             Log.d(TAG, "linearProgressLoading: "+loading.value)
         }
     }
-
-    //원형 로딩 프로그레스
-    /*fun circleProgressLoading(){
-        viewModelScope.launch {
-            delay(2000)
-            loading.value = false
-            Log.d(TAG, "circleProgressLoading: "+loading.value)
-        }
-    }*/
 }

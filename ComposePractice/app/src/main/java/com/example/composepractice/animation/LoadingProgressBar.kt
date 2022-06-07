@@ -7,6 +7,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material.LinearProgressIndicator
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
@@ -96,5 +97,19 @@ fun LinearLoadingProgressBar(
         }
     }
 
+}
 
+@Composable
+fun LinearProgressBar(
+    isBoolean: Boolean
+){
+    if(isBoolean){
+        LinearProgressIndicator(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(15.dp),
+            backgroundColor = Color.LightGray,
+            color = Color.Red
+        )
+    }
 }
