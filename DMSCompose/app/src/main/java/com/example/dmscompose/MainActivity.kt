@@ -1,6 +1,5 @@
 package com.example.dmscompose
 
-import android.graphics.Color.parseColor
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -29,6 +28,7 @@ import com.example.dmscompose.bottomnavi.BottomNavigationCustom
 import com.example.dmscompose.bottomnavi.NavigationGraph
 import com.example.dmscompose.mypage.BottomFourView
 import com.example.dmscompose.mypage.CenterMintBar
+import com.example.dmscompose.ui.shadow.drawColoredShadow
 import com.example.dmscompose.ui.theme.*
 
 class MainActivity : ComponentActivity() {
