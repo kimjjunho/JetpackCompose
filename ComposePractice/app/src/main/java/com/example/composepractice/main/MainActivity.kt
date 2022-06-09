@@ -1,6 +1,7 @@
 package com.example.composepractice.main
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -26,7 +27,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             ComposePracticeTheme (darkTheme = true){
-                LazyColumnStyle1()
+                LazyColumnStyle3()
             }
         }
     }
@@ -37,7 +38,7 @@ class MainActivity : ComponentActivity() {
             itemsIndexed(
                 listOf(100,200,300)
             ){index, item ->  
-                ItemCard(num = item)
+                ItemCard(num = item,this@MainActivity)
             }
         }
     }
@@ -45,7 +46,7 @@ class MainActivity : ComponentActivity() {
     fun LazyColumnStyle3(){
         LazyColumn(){
             items(20){
-                ItemCard(num = it)
+                ItemCard(num = it,applicationContext)
             }
         }
     }
@@ -54,8 +55,8 @@ class MainActivity : ComponentActivity() {
     fun LazyColumnStyle2(){
         LazyColumn(){
             item {
-                ItemCard(num = 2)
-                ItemCard(num = 3)
+                ItemCard(num = 2,applicationContext)
+                ItemCard(num = 3,applicationContext)
             }
         }
     }
@@ -64,8 +65,8 @@ class MainActivity : ComponentActivity() {
     fun LazyColumnStyle1(){
         LazyColumn(){
             item {
-                ItemCard(num = 0)
-                ItemCard(num = 1)
+                ItemCard(num = 0,applicationContext)
+                ItemCard(num = 1,applicationContext)
             }
         }
     }
