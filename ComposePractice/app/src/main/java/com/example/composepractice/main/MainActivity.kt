@@ -1,36 +1,71 @@
 package com.example.composepractice.main
 
-import android.content.ContentValues.TAG
 import android.os.Bundle
-import android.os.Handler
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.lifecycle.viewmodel.compose.viewModel
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import androidx.recyclerview.widget.RecyclerView
 import com.example.composepractice.animation.CircleLoadingProgressBar
 import com.example.composepractice.animation.LinearLoadingProgressBar
 import com.example.composepractice.animation.LinearProgressBar
+import com.example.composepractice.lazycolumn.ItemCard
 import com.example.composepractice.ui.theme.ComposePracticeTheme
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.delay
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             ComposePracticeTheme (darkTheme = true){
-                LinearProgress()
+                LazyColumnStyle1()
+            }
+        }
+    }
+
+    @Composable
+    fun LazyColumnStyle4(){
+        LazyColumn(){
+            itemsIndexed(
+                listOf(100,200,300)
+            ){index, item ->  
+                ItemCard(num = item)
+            }
+        }
+    }
+    @Composable
+    fun LazyColumnStyle3(){
+        LazyColumn(){
+            items(20){
+                ItemCard(num = it)
+            }
+        }
+    }
+
+    @Composable
+    fun LazyColumnStyle2(){
+        LazyColumn(){
+            item {
+                ItemCard(num = 2)
+                ItemCard(num = 3)
+            }
+        }
+    }
+
+    @Composable
+    fun LazyColumnStyle1(){
+        LazyColumn(){
+            item {
+                ItemCard(num = 0)
+                ItemCard(num = 1)
             }
         }
     }
@@ -63,6 +98,7 @@ class MainActivity : ComponentActivity() {
         }
     }
 
+
     //동그란 로딩중 애니메이션
     @Composable
     fun CircleLoadingProgress(
@@ -72,6 +108,8 @@ class MainActivity : ComponentActivity() {
         viewModel.progressLoading()
         CircleLoadingProgressBar(isDisplayed = loading)
     }
+
+
 
 
     //다크모드 적용

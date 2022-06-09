@@ -34,9 +34,8 @@ import com.example.dmscompose.ui.theme.*
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContent {
-            DMSComposeTheme (darkTheme = false){
+            DMSComposeTheme (darkTheme = true){
                 MainScreenView()
             }
         }
@@ -189,7 +188,7 @@ fun MyPage() {
                         .fillMaxWidth()
                         .wrapContentHeight(align = CenterVertically)
                         .wrapContentWidth(align = CenterHorizontally)
-                        .drawColoredShadow(color = Mint, offsetY = 5.dp)
+                        .drawColoredShadow(color = MaterialTheme.colors.primary, offsetY = 5.dp)
                 )
                 Column(
                     modifier = Modifier
@@ -233,7 +232,7 @@ fun MyPage() {
                         .fillMaxWidth()
                         .wrapContentHeight(align = CenterVertically)
                         .wrapContentWidth(align = CenterHorizontally)
-                        .drawColoredShadow(color = Mint, offsetY = 5.dp)
+                        .drawColoredShadow(color = MaterialTheme.colors.primary, offsetY = 5.dp)
                 )
                 Column(
                     modifier = Modifier
