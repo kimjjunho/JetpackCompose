@@ -27,7 +27,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             ComposePracticeTheme (darkTheme = true){
-                LazyColumnStyle3()
+                LazyColumnStyle4()
             }
         }
     }
