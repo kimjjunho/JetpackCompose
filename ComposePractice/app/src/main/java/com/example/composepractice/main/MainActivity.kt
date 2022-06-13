@@ -11,7 +11,6 @@ import androidx.appcompat.view.ContextThemeWrapper
 import androidx.compose.foundation.background
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.layout.R
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -26,11 +25,15 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
+import androidx.core.graphics.green
+import androidx.core.graphics.toColor
 import androidx.recyclerview.widget.RecyclerView
+import com.example.composepractice.R
 import com.example.composepractice.animation.CircleLoadingProgressBar
 import com.example.composepractice.animation.LinearLoadingProgressBar
 import com.example.composepractice.animation.LinearProgressBar
 import com.example.composepractice.lazycolumn.ItemCard
+import com.example.composepractice.ui.theme.Black
 import com.example.composepractice.ui.theme.ComposePracticeTheme
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
@@ -43,6 +46,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             ComposePracticeTheme (darkTheme = true) {
+                //setTheme(R.style.Theme_ComposePractice1)
                 CalendarStyle()
             }
         }
@@ -52,17 +56,20 @@ class MainActivity : ComponentActivity() {
 
     @Composable
     fun CalendarStyle (){
+        val i = 0
         var date by remember {
             mutableStateOf("")
         }
         Scaffold(
             content = {
-                AndroidView(factory = {CalendarView(it)}, update = {
+                AndroidView(factory = {CalendarView(ContextThemeWrapper(it,R.style.Theme_ComposePractice1))}, update = {
                     it.setOnDateChangeListener{ CalendarView, year, month, day ->
 
                     }
                 })
             })
+
+
     }
 
     @Composable
